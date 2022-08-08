@@ -20,6 +20,25 @@ class CartItem extends React.Component {
 
     increaseQuantity () {
         console.log(this.state);
+        //setState form-1
+        // this.setState({
+        //     qty: this.state.qty+1
+        // })
+
+        //to simply change the title
+        // if we require the prev state we will use the form 2, otherwise we will use the form 1
+        this.setState({
+              title: "some new title"
+        })
+        //setState form 2
+        this.setState((prevState) => {
+            return{
+                qty: prevState.qty + 1
+            }
+        })
+
+        // // the same wont be refleceted in the ui . this is not the way to get it done// 
+        // this.state.qty +=1;
     }
     render() {
         // {/* we can also get them, as var and use them */}
@@ -29,6 +48,7 @@ class CartItem extends React.Component {
                 <div className='left-block'>
                     <img style={styles.image} />
                 </div>
+                
                 <div className='right-block'>
                     {/* to grab the data and use it in our jsx component */}
                     <div style={{ fontSize: 25 }}>{title}</div>
