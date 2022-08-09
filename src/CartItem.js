@@ -5,23 +5,6 @@ class CartItem extends React.Component {
     // {/*to add state to our component */ }
     // whenever we are imheriting from another class,
     // we first need to call constructor of the parent class
-
-    constructor() {
-        super();
-        this.state = {
-
-            price: 999,
-            title: 'Mobile Phone',
-            qty: 1,
-            img: ''
-        }
-        //,may go messy if multiple fncs nned to be used, insteda we can used arro function
-        // this.increaseQuantity = this.increaseQuantity.bind(this);
-        // this.decreaseQuantity = this.decreaseQuantity.bind(this);
-        // this.testing();
-
-    }
-
     // increaseQuantity = () => {
     //     console.log(this.state);
     //     //setState form-1
@@ -138,18 +121,20 @@ class CartItem extends React.Component {
     // }
 
 
-    handleClick = () => {
-        this.setState({ qty: 2 }, () => console.log(this.state.qty));
-        this.setState({ qty: 3 }, () => console.log(this.state.qty));
-    }
-    render() {
+    // handleClick = () => {
+    //     this.setState({ qty: 2 }, () => console.log(this.state.qty));
+    //     this.setState({ qty: 3 }, () => console.log(this.state.qty));
+    // }
+   render() {
 
+        console.log('this.props', this.props);
         // this.setState({qty:1});
         // console.log("render", this.state.qty);
         // {/* we can also get them, as var and use them */}
-        const { price, title, qty } = this.state;
+        const { price, title, qty } = this.props.product;
         return (
             <div className='cart-item'>
+                {/* {this.props.jsx} */}
                 <div className='left-block'>
                     <img style={styles.image} />
                 </div>
@@ -178,7 +163,7 @@ class CartItem extends React.Component {
                             className="action-items"
                             src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png"
 
-                            onClick={this.handleClick}
+                            
                         />
 
                     </div>
